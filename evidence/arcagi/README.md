@@ -40,3 +40,15 @@ Same 25 game instances throughout, verified by id. Coverage statistics
 (games, levels, actions) are not scores; RHAE is the score.
 
 Further domains publish under this identical standard as `evidence/<world>/`.
+
+## The sample journal
+
+`journal-dc22.jsonl.gz` is the complete journal of the dc22 run: 1,043
+events, 1,042 paid actions, WIN 6/6. It includes the agent's predictions,
+grades, and notes in full. Verify it against its published head:
+
+```bash
+gunzip -k journal-dc22.jsonl.gz
+python3 ../../assay_verify.py journal-dc22.jsonl \
+  --expect-head f7a0991384f645d42280949e1946f6a33bd59373012f6a9c47b46d0ef4a0561d
+```

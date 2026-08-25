@@ -1,8 +1,8 @@
 # assay-verify
 
-An open, world-agnostic standard for **auditable agent runs**, and the
-standalone checker that verifies conformance — no harness required, no trust
-in the operator required.
+An open, world-agnostic standard for **auditable agent runs**, and a
+standalone checker. The checker requires no harness and no trust in the
+operator.
 
 An [ASSAY](https://arjmandi.github.io/assay-site/) journal records an agent
 run as an append-only sequence of events under a rolling hash chain: every

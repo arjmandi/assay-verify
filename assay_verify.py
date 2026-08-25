@@ -28,14 +28,17 @@ class VerifyError(Exception):
     pass
 
 
-def find_state_dir(run_dir: Path) -> Path:
+def find_journal(target: Path) -> tuple[Path, str]:
+    """Accept a run directory (holding .assay/ or .arc/) or a journal file."""
+    if target.is_file():
+        return target, "(file)"
     for name in STATE_DIRS:
-        candidate = run_dir / name
+        candidate = target / name
         if (candidate / "events.jsonl").is_file():
-            return candidate
+            return candidate / "events.jsonl", name
     raise VerifyError(
-        f"no journal under {run_dir} (looked for "
-        + ", ".join(f"{d}/events.jsonl" for d in STATE_DIRS) + ")"
+        f"no journal at {target} (expected an events.jsonl file, or a run "
+        "directory holding " + " or ".join(f"{d}/events.jsonl" for d in STATE_DIRS) + ")"
     )
 
 
@@ -117,12 +120,12 @@ def recovered_orphans(events: list[dict]) -> list[int]:
 
 
 def verify(run_dir: Path, expect_head: str | None = None) -> dict:
-    state_dir = find_state_dir(run_dir)
-    lines = read_lines(state_dir / "events.jsonl")
+    journal, state_name = find_journal(run_dir)
+    lines = read_lines(journal)
     events, contiguity_problems = parse_events(lines)
     head = compute_chain(lines)
     last_id = len(lines) - 1
-    stored = stored_chain_state(state_dir, last_id, head)
+    stored = stored_chain_state(journal.parent, last_id, head)
     ungated = ungated_events(events)
     paid = sum(1 for event in events if event.get("counts_action"))
     final = events[-1] if events else {}
@@ -139,7 +142,7 @@ def verify(run_dir: Path, expect_head: str | None = None) -> dict:
     return {
         "spec": SPEC,
         "run": str(run_dir),
-        "state_dir": state_dir.name,
+        "state_dir": state_name,
         "events": len(events),
         "paid": paid,
         "contiguous": not contiguity_problems,
@@ -181,7 +184,8 @@ def human_lines(report: dict) -> list[str]:
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("run_dir", type=Path, help="run directory holding .assay/ or .arc/")
+    parser.add_argument("run_dir", type=Path,
+                        help="run directory holding .assay/ or .arc/, or an events.jsonl file")
     parser.add_argument("--expect-head", help="published chain head to verify against")
     parser.add_argument("--json", action="store_true", help="machine-readable output")
     args = parser.parse_args(argv)

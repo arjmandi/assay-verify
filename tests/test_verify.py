@@ -160,6 +160,13 @@ class VerifyTests(unittest.TestCase):
         self.assertEqual(report["expect_head"], "MISMATCH")
         self.assertEqual(report["verdict"], "INVALID FOR SCORING")
 
+    def test_bare_journal_file_input(self):
+        run = self.fresh("filemode")
+        report = verify(run / ".assay" / "events.jsonl")
+        self.assertEqual(report["state_dir"], "(file)")
+        self.assertEqual(report["verdict"], "CLEAN")
+        self.assertEqual(report["paid"], 8)
+
     def test_reset_is_gate_exempt(self):
         report = verify(self.fresh("resetok"))
         self.assertEqual(report["ungated"], [])  # event 4 is a claim-free RESET
