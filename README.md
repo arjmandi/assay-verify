@@ -38,6 +38,8 @@ alone. `--expect-head` checks the journal against a head published in
 journal you hold is byte-identical to the one whose head was published —
 nothing edited, deleted, or reordered since.
 
+To confirm the checker actually rejects tampering, decompress the sample `evidence/arcagi/journal-dc22.jsonl.gz`, flip one byte in it, and run it again with the published `--expect-head`: the recomputed head no longer matches and the verdict becomes `INVALID FOR SCORING`.
+
 Run the checker's own tests (they use a synthetic non-game world; no
 benchmark data is involved anywhere in the tool or its tests):
 
