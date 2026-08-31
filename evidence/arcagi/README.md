@@ -41,11 +41,17 @@ Same 25 game instances throughout, verified by id. Coverage statistics
 
 Further domains publish under this identical standard as `evidence/<world>/`.
 
-## The sample journal
+## The journals
 
-`journal-dc22.jsonl.gz` is the complete journal of the dc22 run: 1,043
-events, 1,042 paid actions, WIN 6/6. It includes the agent's predictions,
-grades, and notes in full. Verify it against its published head:
+All 25 canonical journals are published in this directory, one per game, as
+`journal-<game>.jsonl.gz`. Each is the complete journal of its run and
+includes the agent's predictions, grades, and notes in full. Decompress any
+of them and verify it against its head in `heads.json` exactly as in the
+worked example below. lf52, the one open game, is published with the rest.
+
+The worked example: `journal-dc22.jsonl.gz` is the complete journal of the
+dc22 run, 1,043 events, 1,042 paid actions, WIN 6/6. Verify it against its
+published head:
 
 ```bash
 gunzip -k journal-dc22.jsonl.gz

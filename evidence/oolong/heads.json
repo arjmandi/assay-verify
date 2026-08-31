@@ -1,0 +1,38 @@
+{
+ "spec": "assay-journal-v1",
+ "world": "oolong-synth",
+ "generated": "2026-08-31",
+ "note": "Un-hinted arm (neutral task framing, competitor parity): the runs behind the paper's reported OOLONG numbers. Corpus-pack adapter with span-gated BANK_FACT/SUBMIT; scoring sealed at finalize via the benchmark's own scorer (vendored, byte-identical, sha256 247583a3). The corpus is not in the journal by design: each observation carries corpus_path and corpus_sha256; corpora derive from the public oolongbench/oolong-synth dataset.",
+ "runs": [
+  {
+   "task": "synth128k",
+   "events": 51,
+   "paid": 50,
+   "progress": "25/25",
+   "final_state": "WIN",
+   "chain_head": "2dc2360a10e77f51cbfb82abd6d1ac24ca500806485db8aeee29c7b39f540ec8",
+   "stored_chain": "intact",
+   "verdict": "CLEAN"
+  },
+  {
+   "task": "synth1m",
+   "events": 51,
+   "paid": 50,
+   "progress": "25/25",
+   "final_state": "WIN",
+   "chain_head": "93d36427c9f0229e7d2f161454243841ddfdd6e926a6b7908509335718a771a7",
+   "stored_chain": "intact",
+   "verdict": "CLEAN"
+  },
+  {
+   "task": "synth4m",
+   "events": 41,
+   "paid": 40,
+   "progress": "20/20",
+   "final_state": "WIN",
+   "chain_head": "2d49db298cc8d2166099f66ec69f002084efd9896f56b2b666d40013d31c96af",
+   "stored_chain": "intact",
+   "verdict": "CLEAN"
+  }
+ ]
+}

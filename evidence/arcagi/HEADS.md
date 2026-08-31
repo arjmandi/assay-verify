@@ -11,9 +11,10 @@ directory is later shared with anyone, it must verify against its head here —
 python3 ../../assay_verify.py <shared-run-dir> --expect-head <head below>
 ```
 
-Every paid-action count below equals the per-game action count the ARC
-server independently reported on the consolidated scorecard, and the total
-is 8,157. Three early runs predate chain support in the writer (`stored
+All 25 journals are now published alongside this table as
+`journal-<game>.jsonl.gz`. Every paid-action count below equals the
+per-game action count the ARC server independently reported on the
+consolidated scorecard, and the total is 8,157. Three early runs predate chain support in the writer (`stored
 chain: absent`); their heads are recomputed from the journal and commit
 them from publication forward.
 

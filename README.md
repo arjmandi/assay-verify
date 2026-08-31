@@ -20,9 +20,13 @@ given.
   library only, reimplemented from the spec (it shares no code with the
   harness; the two implementations agreeing is part of the point).
 - **`evidence/arcagi/`** — the first evidence pack: published chain heads and
-  paid-action counts for the 25-game ARC-AGI-3 record, the benchmark's
-  scoring function (`rhae.py`, validated against 25/25 published scores), and
-  the public scorecard links.
+  paid-action counts for the 25-game ARC-AGI-3 record, the complete journals
+  of all 25 runs, the benchmark's scoring function (`rhae.py`, validated
+  against 25/25 published scores), and the public scorecard links.
+- **`evidence/factorio/`, `evidence/oolong/`** — the second and third
+  evidence packs: published heads and complete journals for the Factorio
+  (FLE) calibration wins and for the un-hinted OOLONG runs behind the
+  paper's numbers.
 
 ## Verify a journal
 
@@ -65,9 +69,9 @@ grading (the grammar spec makes every predict/grade pair in a journal
 readable, but re-grading is out of scope for v1); it cannot prove anything
 about *live reasoning* — no post-hoc tool can; and outcome truth for
 benchmark runs rests with the benchmark's own public scorecards, linked in
-the evidence pack. Journals themselves are shared per-run at the operator's
-discretion; this tool makes any shared journal checkable against its
-already-published head.
+the evidence pack. The complete journals of all three evidence packs are
+published in `evidence/`, and each verifies against its already-published
+head.
 
 ## Versioning
 

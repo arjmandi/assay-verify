@@ -1,0 +1,38 @@
+{
+ "spec": "assay-journal-v1",
+ "world": "factorio-fle-lab",
+ "generated": "2026-08-26",
+ "note": "M2 calibration canonical wins (Option A, cap 64, Opus 5), connect_entities-fixed adapter.",
+ "runs": [
+  {
+   "task": "ironplate",
+   "events": 6,
+   "paid": 5,
+   "progress": "4/4",
+   "state": "WIN",
+   "chain_head": "1c484356fc5ed31c09779aa716e44b8540fd2a0c190bf0a007bda0dfe3c26f11",
+   "verdict": "CLEAN",
+   "cost_usd": 1.99
+  },
+  {
+   "task": "irongear",
+   "events": 10,
+   "paid": 9,
+   "progress": "4/4",
+   "state": "WIN",
+   "chain_head": "dc78ff02e0cc00e13188b656ab97f38e877ea586701f4226e0c02dd8ee04486b",
+   "verdict": "CLEAN",
+   "cost_usd": 4.87
+  },
+  {
+   "task": "circuit",
+   "events": 10,
+   "paid": 9,
+   "progress": "4/4",
+   "state": "WIN",
+   "chain_head": "eadd060eb596e48a84541d1fa2dc825ddf5afc970b24e1bf133d8bfde778fca4",
+   "verdict": "CLEAN",
+   "cost_usd": 4.44
+  }
+ ]
+}
