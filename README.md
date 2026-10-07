@@ -1,3 +1,12 @@
+> **Retired on 2026-10-07.** Everything here moved into the ASSAY repository,
+> [github.com/arjmandi/assay](https://github.com/arjmandi/assay): the checker at
+> `verify/assay_verify.py`, `JOURNAL_SPEC.md` and `CLAIM_GRAMMAR.md` in `verify/`,
+> and every evidence pack (ten packs, 66 journals at release 1.1.0) in `evidence/`,
+> each checkable with `python3 evidence/verify_all.py`. ASSAY 1.1.0 is released
+> under the Apache License 2.0, and `verify/` and the packs stay under MIT. This
+> repository is archived and read-only. The files below are its state at
+> retirement and are no longer updated.
+
 # assay-verify
 
 An open, world-agnostic standard for **auditable agent runs**, and a
